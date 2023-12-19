@@ -18,6 +18,9 @@ RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar 
 RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
+WORKDIR /app
+RUN npm install
+RUN npm run build
 
 RUN chown -R www-data: /app
 
